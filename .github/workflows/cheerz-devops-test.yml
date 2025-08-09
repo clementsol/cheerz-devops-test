@@ -66,8 +66,9 @@ jobs:
           service: cheerz-devops-test
           image: ${{ secrets.GCP_AR_URL }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           region: ${{ secrets.GCP_AR_LOC }}
-          port: ${{ env.IMAGE_PORT }}
-          allow-unauthenticated: true
+          flags: |
+            --port=${{ env.IMAGE_PORT }}
+            --allow-unauthenticated
 
       - name: Output Cloud Run URL
         run: echo "Cloud Run service deployed at ${{ steps.cloudrun-deploy.outputs.url }}"
