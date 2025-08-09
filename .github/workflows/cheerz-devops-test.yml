@@ -68,7 +68,4 @@ jobs:
           region: ${{ secrets.GCP_AR_LOC }}
           flags: |
             --port=${{ env.IMAGE_PORT }}
-            --allow-unauthenticated
-
-      - name: Output Cloud Run URL
-        run: echo "Cloud Run service deployed at ${{ steps.cloudrun-deploy.outputs.url }}"
+            --no-invoker-iam-check
