@@ -48,7 +48,7 @@ jobs:
           workload_identity_provider: ${{ secrets.GCP_WL_ID_PROVIDER }}
 
       - name: Authenticate Docker to Artifact Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: oauth2accesstoken
           password: ${{ steps.gcp-auth.outputs.access_token }}
