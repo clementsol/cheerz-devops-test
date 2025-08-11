@@ -35,7 +35,7 @@ jobs:
         run: |
           mkdir -p build/dependency
           cd build/dependency
-          jar -xf ../libs/cheerz-devops-test-*-SNAPSHOT.jar
+          jar -xf ../libs/cheerz-devops-test-${{ github.ref_name }}.jar
 
       - name: Authenticate to Google Cloud
         id: gcp-auth
